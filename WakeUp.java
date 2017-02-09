@@ -1,6 +1,7 @@
 //TODO: add verbose mode
 //TODO: make a testing class to quarantine Dirty Code
 //TODO: add maxWidth for box display
+//
 import java.util.ArrayList;
 
 public class WakeUp {
