@@ -1,11 +1,12 @@
 //TODO: add verbose mode
 //TODO: make a testing class to quarantine Dirty Code
 //TODO: add maxWidth for box display
-//
+//TODO: make a preferences object that will interface with stuff like MAX_WIDTH
+//BUG: trim newlines off the end
 import java.util.ArrayList;
 
 public class WakeUp {
-    private static int maxWidth = 80;
+    private static final int MAX_WIDTH = 80;
     private static ArrayList<String> outMsg = new ArrayList<String>();
     private static int longestLen = 0;
 
@@ -14,13 +15,14 @@ public class WakeUp {
         TestDep deps = new TestDep();
         args = deps.useHardMsg();
       }
-      printInBox(args);
+      boxPrint(args);
     }
 
-    public static void printInBox(String[] messages){
+    public static void boxPrint(String[] messages){
       processMsgs(messages);
       printMsg(formatMsg());
     }
+
     public static void printMsg(String finalMsg){
       String caps = "";
       for(int i=0; i<longestLen; i++){
@@ -54,6 +56,6 @@ public class WakeUp {
         }
         outMsg.add(message);
       }
-      //System.out.println("longest line is: " + longestLen);
+      //System.out.println("longest line is: " + longestLen);//Save for -v mode
     }
 }
