@@ -1,12 +1,12 @@
 //TODO: add verbose mode
 //TODO: make a testing class to quarantine Dirty Code
-//TODO: add maxWidth for box display
 //TODO: make a preferences object that will interface with stuff like MAX_WIDTH
+//TODO: Fix the names of these functions to describe their effect better
 //BUG: trim newlines off the end
 import java.util.ArrayList;
 
 public class WakeUp {
-    private static final int MAX_WIDTH = 80;
+    private static final int MAX_WIDTH = 78;
     private static ArrayList<String> outMsg = new ArrayList<String>();
     private static int longestLen = 0;
 
@@ -23,6 +23,46 @@ public class WakeUp {
       printMsg(formatMsg());
     }
 
+    public static void processMsgs(String[] messages){
+      for(String message : messages){
+        int mesLen = message.length();
+        if(mesLen < longestLen){
+          outMsg.add(message);
+        }else{
+          if(mesLen < MAX_WIDTH){
+            longestLen = mesLen;
+            outMsg.add(message);
+          }else{//worst case: have to break up string
+            longestLen = MAX_WIDTH;
+            breakString(message);
+          }
+        }
+      }
+      //System.out.println("longest line is: " + longestLen);//Save for -v mode
+    }
+
+    private static void breakString(String longStr){
+      int i = 0;
+      while(i < longStr.length()){
+        outMsg.add(longStr.substring(i, Math.min(i + MAX_WIDTH, longStr.length())));
+        i += MAX_WIDTH;
+      }
+      System.out.println("String break complete~~~\n");
+    }
+
+    public static String formatMsg(){
+      String formattedMsg = "";
+      for(String string: outMsg){
+        string = string.trim();
+        int strLen = string.length();
+        for(int i=0; i<longestLen-strLen; i++){
+          string += ' ';
+        }
+        formattedMsg += "|" + string + "|\n";
+      }
+      return formattedMsg;
+    }
+
     public static void printMsg(String finalMsg){
       String caps = "";
       for(int i=0; i<longestLen; i++){
@@ -36,26 +76,5 @@ public class WakeUp {
       System.out.println(finalMsg);
     }
 
-    public static String formatMsg(){
-      String lastMsg="";
-      for(String string: outMsg){
-        string = string.trim();
-        int strLen = string.length();
-        for(int i=0; i<longestLen-strLen; i++){
-          string += ' ';
-        }
-        lastMsg += "|" + string + "|\n";
-      }
-      return lastMsg;
-    }
 
-    public static void processMsgs(String[] messages){
-      for(String message : messages){
-        if(message.length() > longestLen){
-          longestLen = message.length();
-        }
-        outMsg.add(message);
-      }
-      //System.out.println("longest line is: " + longestLen);//Save for -v mode
-    }
 }
