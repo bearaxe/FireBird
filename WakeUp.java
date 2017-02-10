@@ -18,11 +18,13 @@ public class WakeUp {
       boxPrint(args);
     }
 
+    //Stub runner, keeps code clean/easy to read
     public static void boxPrint(String[] messages){
       processMsgs(messages);
       printMsg(formatMsg());
     }
 
+    //This prepares message for formatting and determines width of print box
     public static void processMsgs(String[] messages){
       for(String message : messages){
         int mesLen = message.length();
@@ -38,18 +40,18 @@ public class WakeUp {
           }
         }
       }
-      //System.out.println("longest line is: " + longestLen);//Save for -v mode
     }
 
+    //This breaks a string longer than MAX_WIDTH into appropriately sized substrings
     private static void breakString(String longStr){
       int i = 0;
       while(i < longStr.length()){
         outMsg.add(longStr.substring(i, Math.min(i + MAX_WIDTH, longStr.length())));
         i += MAX_WIDTH;
       }
-      System.out.println("String break complete~~~\n");
     }
 
+    //This adds spacing to each line with respect to longest String
     public static String formatMsg(){
       String formattedMsg = "";
       for(String string: outMsg){
@@ -63,6 +65,7 @@ public class WakeUp {
       return formattedMsg;
     }
 
+    //This what actually does the formatting
     public static void printMsg(String finalMsg){
       String caps = "";
       for(int i=0; i<longestLen; i++){
@@ -75,6 +78,5 @@ public class WakeUp {
 
       System.out.println(finalMsg);
     }
-
 
 }
