@@ -9,7 +9,6 @@ public class Printer {
     private final int MAX_WIDTH = 78;
     private ArrayList<String> outMsg = new ArrayList<String>();
     private int longestLen = 0;
-    private
 
     //Stub runner, keeps code clean/easy to read
     public void boxPrint(String[] messages){
@@ -42,6 +41,13 @@ public class Printer {
       }
     }
 
+    //This what actually does the formatting
+    private void printMsg(){
+      String midSection = formatContent();
+      String output = formatBorders(midSection);
+      System.out.println(output);
+    }
+
     //This adds spacing to each line with respect to longest String
     private String formatContent(){
       String content = "";
@@ -56,6 +62,7 @@ public class Printer {
       return content;
     }
 
+    //applies the final prettyifying details
     private String formatBorders(String midSection){
       String caps = "";
       for(int i=0; i<longestLen; i++){
@@ -67,13 +74,6 @@ public class Printer {
                         + "'" + caps + "'";
 
       return finalMsg;
-    }
-
-    //This what actually does the formatting
-    private void printMsg(){
-      String midSection = formatContent();
-      String output = formatBorders(midSection);
-      System.out.println(output);
     }
 
 }
