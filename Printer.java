@@ -5,18 +5,12 @@
 //BUG: trim newlines off the end
 import java.util.ArrayList;
 
-public class WakeUp {
+public class Printer {
     private static final int MAX_WIDTH = 78;
     private static ArrayList<String> outMsg = new ArrayList<String>();
     private static int longestLen = 0;
 
-    public static void main(String[] args) {
-      if(args.length == 0){
-        TestDep deps = new TestDep();
-        args = deps.useHardMsg();
-      }
-      boxPrint(args);
-    }
+    
 
     //Stub runner, keeps code clean/easy to read
     public static void boxPrint(String[] messages){
