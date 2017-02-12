@@ -14,10 +14,9 @@ public class Manager{
   }
 
   private static void scanForInput(Printer printer){
-    //begin interactive nonsense
     Scanner cmdInput = new Scanner(System.in);
     for (prompt(); cmdInput.hasNextLine(); prompt()){
-      String newMsg = cmdInput.nextLine();//.replaceAll("\n", "");
+      String newMsg = cmdInput.nextLine();
 
       if(newMsg.length() == 0)
         continue;//skip next parts, go to next round
@@ -29,7 +28,6 @@ public class Manager{
       }
 
       printer.boxPrint(args);
-
     }
   }
 
