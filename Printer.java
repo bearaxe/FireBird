@@ -6,20 +6,18 @@
 import java.util.ArrayList;
 
 public class Printer {
-    private static final int MAX_WIDTH = 78;
-    private static ArrayList<String> outMsg = new ArrayList<String>();
-    private static int longestLen = 0;
-
-    
+    private final int MAX_WIDTH = 78;
+    private ArrayList<String> outMsg = new ArrayList<String>();
+    private int longestLen = 0;
 
     //Stub runner, keeps code clean/easy to read
-    public static void boxPrint(String[] messages){
+    public void boxPrint(String[] messages){
       processMsgs(messages);
-      printMsg(formatMsg());
+      printMsg();
     }
 
     //This prepares message for formatting and determines width of print box
-    public static void processMsgs(String[] messages){
+    private void processMsgs(String[] messages){
       for(String message : messages){
         int mesLen = message.length();
         if(mesLen < longestLen){
@@ -37,7 +35,7 @@ public class Printer {
     }
 
     //This breaks a string longer than MAX_WIDTH into appropriately sized substrings
-    private static void breakString(String longStr){
+    private void breakString(String longStr){
       int i = 0;
       while(i < longStr.length()){
         outMsg.add(longStr.substring(i, Math.min(i + MAX_WIDTH, longStr.length())));
@@ -46,31 +44,37 @@ public class Printer {
     }
 
     //This adds spacing to each line with respect to longest String
-    public static String formatMsg(){
-      String formattedMsg = "";
+    private String formatContent(){
+      String content = "";
       for(String string: outMsg){
         string = string.trim();
         int strLen = string.length();
         for(int i=0; i<longestLen-strLen; i++){
           string += ' ';
         }
-        formattedMsg += "|" + string + "|\n";
+        content += "|" + string + "|\n";
       }
-      return formattedMsg;
+      return content;
     }
 
-    //This what actually does the formatting
-    public static void printMsg(String finalMsg){
+    private String formatBorders(String midSection){
       String caps = "";
       for(int i=0; i<longestLen; i++){
         caps += "-";
       }
 
-      finalMsg = "." + caps + ".\n"
-                + finalMsg
-                + "'" + caps + "'";
+      String finalMsg = "." + caps + ".\n"
+                        + midSection
+                        + "'" + caps + "'";
 
-      System.out.println(finalMsg);
+      return finalMsg;
+    }
+
+    //This what actually does the formatting
+    private void printMsg(){
+      String midSection = formatContent();
+      String output = formatBorders(midSection);
+      System.out.println(output);
     }
 
 }
