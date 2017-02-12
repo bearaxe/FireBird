@@ -9,6 +9,7 @@ public class Printer {
     private final int MAX_WIDTH = 78;
     private ArrayList<String> outMsg = new ArrayList<String>();
     private int longestLen = 0;
+    private
 
     //Stub runner, keeps code clean/easy to read
     public void boxPrint(String[] messages){
@@ -22,14 +23,12 @@ public class Printer {
         int mesLen = message.length();
         if(mesLen < longestLen){
           outMsg.add(message);
-        }else{
-          if(mesLen < MAX_WIDTH){
+        }else if(mesLen < MAX_WIDTH){
             longestLen = mesLen;
             outMsg.add(message);
-          }else{//worst case: have to break up string
-            longestLen = MAX_WIDTH;
-            breakString(message);
-          }
+        }else{//worst case: have to break up string
+          longestLen = MAX_WIDTH;
+          breakString(message);
         }
       }
     }
