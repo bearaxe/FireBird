@@ -14,6 +14,7 @@ public class Printer {
     public void boxPrint(String[] messages){
       processMsgs(messages);
       printMsg();
+      flush();
     }
 
     //This prepares message for formatting and determines width of print box
@@ -41,7 +42,7 @@ public class Printer {
       }
     }
 
-    //This what actually does the formatting
+    //This what actually does the formatting (glorified stub runner)
     private void printMsg(){
       String midSection = formatContent();
       String output = formatBorders(midSection);
@@ -74,6 +75,11 @@ public class Printer {
                         + "'" + caps + "'";
 
       return finalMsg;
+    }
+
+    private void flush(){
+      outMsg = new ArrayList<String>();
+      longestLen = 0;
     }
 
 }
