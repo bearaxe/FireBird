@@ -14,21 +14,30 @@ public class Manager{
   }
 
   private static void scanForInput(Printer printer){
-    Scanner cmdInput = new Scanner(System.in);
-    for (prompt(); cmdInput.hasNextLine(); prompt()){
-      String newMsg = cmdInput.nextLine();
+    Scanner input = new Scanner(System.in);
+    for (prompt(); input.hasNextLine(); prompt()){
+      String newMsg = input.nextLine();
 
       if(newMsg.length() == 0)
         continue;//skip next parts, go to next round
 
-      String[] args = newMsg.split("\\.");
-
-      if (newMsg.equalsIgnoreCase("exit")){
+      if(newMsg.equalsIgnoreCase("exit")){
         System.exit(0);
+      }
+
+      String[] args = newMsg.split("\\.");
+      if(args[0].split(" ")[0].equalsIgnoreCase("load")){
+        String fileLocation = args[0].substring(5);
+        loadFile(fileLocation);
+        continue;
       }
 
       printer.boxPrint(args);
     }
+  }
+
+  private static void loadFile(String fileLocation){
+    System.out.println("File at " + fileLocation + " loaded!");
   }
 
   public static void prompt(){
