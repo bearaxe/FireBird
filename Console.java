@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Console{
   private DataHandler dataHandler = new DataHandler();
+  private FileHandler fileHandler = new FileHandler();
 
   public void scanForInput(Printer printer){
     Scanner input = new Scanner(System.in);
@@ -29,16 +30,16 @@ public class Console{
           System.exit(0);
           break;
         case "load":
-          dataHandler.loadFile(argLine.substring(5));
+          fileHandler.loadFile(argLine.substring(5));
           break;
         case "update":
-          dataHandler.updateData(argLine.substring(7));
+          dataHandler.updateData(argLine.substring(7), "Unimplemented");
           break;
         case "find":
           dataHandler.getData(argLine.substring(5));
           break;
         case "save":
-          dataHandler.saveFile(argLine.substring(5));
+          fileHandler.saveFile(argLine.substring(5));
         default:
           break; //do nothing, just print.
       }
