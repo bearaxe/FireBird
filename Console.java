@@ -12,10 +12,6 @@ public class Console{
       if(newMsg.length() == 0)
         continue;//skip next parts, go to next round
 
-      if(newMsg.trim().equalsIgnoreCase("exit")){
-        System.exit(0);
-      }
-
       String[] args = newMsg.split("\\.");
       readInput(args);
       printer.boxPrint(args);
@@ -26,10 +22,17 @@ public class Console{
     for(String argLine : args){
       argLine = argLine.trim();
       String keyword = argLine.split(" ")[0];
-      //this will eventually need to be a case statement.
-      if(keyword.equalsIgnoreCase("load")){
-        String fileLocation = argLine.substring(5);
-        loadFile(fileLocation);
+
+      switch(keyword){
+        case "exit":
+          System.exit(0);
+          break;
+        case "load":
+          String fileLocation = argLine.substring(5);
+          loadFile(fileLocation);
+          break;
+        default:
+          break; //do nothing, just print.
       }
     }
   }
