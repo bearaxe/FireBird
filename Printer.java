@@ -1,3 +1,4 @@
+//Prints stuff in a pretty way.
 //TODO: add verbose mode
 //TODO: make a testing class to quarantine Dirty Code
 //TODO: make a preferences object that will interface with stuff like MAX_WIDTH
