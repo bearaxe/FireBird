@@ -1,3 +1,4 @@
+//TODO: Update input scanner to respond to 1st word of every line in long inputs
 import java.util.Scanner;
 
 public class Manager{
@@ -21,18 +22,25 @@ public class Manager{
       if(newMsg.length() == 0)
         continue;//skip next parts, go to next round
 
-      if(newMsg.equalsIgnoreCase("exit")){
+      if(newMsg.trim().equalsIgnoreCase("exit")){
         System.exit(0);
       }
 
       String[] args = newMsg.split("\\.");
-      if(args[0].split(" ")[0].equalsIgnoreCase("load")){
-        String fileLocation = args[0].substring(5);
-        loadFile(fileLocation);
-        continue;
-      }
-
+      readInput(args);
       printer.boxPrint(args);
+    }
+  }
+
+  private static void readInput(String[] args){
+    for(String argLine : args){
+      argLine = argLine.trim();
+      String keyword = argLine.split(" ")[0];
+      //this will eventually need to be a case statement.
+      if(keyword.equalsIgnoreCase("load")){
+        String fileLocation = argLine.substring(5);
+        loadFile(fileLocation);
+      }
     }
   }
 
