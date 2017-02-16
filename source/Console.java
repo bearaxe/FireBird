@@ -23,22 +23,23 @@ public class Console{
     for(String argLine : args){
       argLine = argLine.trim();
       String keyword = argLine.split(" ")[0];
+      int keySpaceLen = keyword.length()+1;
 
       switch(keyword){
         case "exit":
           System.exit(0);
           break;
         case "load":
-          dataController.loadFile(argLine.substring(5));
+          dataController.loadFile(argLine.substring(keySpaceLen));
           break;
         case "update":
-          dataController.updateQuery(argLine.substring(7), "Unimplemented");
+          dataController.updateQuery(argLine.substring(keySpaceLen), "Unimplemented");
           break;
         case "find":
-          dataController.getQuery(argLine.substring(5));
+          dataController.getQuery(argLine.substring(keySpaceLen));
           break;
         case "save":
-          dataController.saveFile(argLine.substring(5));
+          dataController.saveFile(argLine.substring(keySpaceLen));
         default:
           break; //do nothing, just print.
       }
