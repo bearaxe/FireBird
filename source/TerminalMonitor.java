@@ -1,9 +1,9 @@
 //Does terminal monitoring.
-//This is a submanager that does input interpretation (for now)
-//I guess with the rename, this makes it a monitor. TerminalMonitor?
+//This does input interpretation.
+//As much as I want to, I can't call it MonitorMonitor
 import java.util.Scanner;
 
-public class Console{
+public class TerminalMonitor{
   private DataController dataController = new DataController();
 
   public void scanForInput(Printer printer){
@@ -20,6 +20,7 @@ public class Console{
     }
   }
 
+  //this will get moved to what will be between terminalMonitor and webMonitor
   private void readInput(String[] args){
     for(String argLine : args){
       argLine = argLine.trim();

@@ -1,5 +1,5 @@
 //Entry point of system.
-//Doesn't do much but keeps things organized.
+//Doesn't do much but launch the system.
 public class Launcher{
 
   public static void main(String[] args) {

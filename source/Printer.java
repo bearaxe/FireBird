@@ -1,9 +1,7 @@
 //Prints stuff in a pretty way.
 //TODO: add verbose mode
-//TODO: make a testing class to quarantine Dirty Code
 //TODO: make a preferences object that will interface with stuff like MAX_WIDTH
-//TODO: Fix the names of these functions to describe their effect better
-//BUG: trim newlines off the end
+
 import java.util.ArrayList;
 
 public class Printer {

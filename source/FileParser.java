@@ -1,4 +1,4 @@
-//Handles Files.
+//Parses Files.
 //Parses data and puts it into Objects
 public class FileParser{
 
