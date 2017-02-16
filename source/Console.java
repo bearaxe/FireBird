@@ -32,10 +32,10 @@ public class Console{
           dataHandler.loadFile(argLine.substring(5));
           break;
         case "update":
-          dataHandler.updateData(argLine.substring(7), "Unimplemented");
+          dataHandler.updateQuery(argLine.substring(7), "Unimplemented");
           break;
         case "find":
-          dataHandler.getData(argLine.substring(5));
+          dataHandler.getQuery(argLine.substring(5));
           break;
         case "save":
           dataHandler.saveFile(argLine.substring(5));
