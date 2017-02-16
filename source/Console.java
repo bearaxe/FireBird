@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 public class Console{
-  private DataHandler dataHandler = new DataHandler();
+  private DataController dataController = new DataController();
 
   public void scanForInput(Printer printer){
     Scanner input = new Scanner(System.in);
@@ -29,16 +29,16 @@ public class Console{
           System.exit(0);
           break;
         case "load":
-          dataHandler.loadFile(argLine.substring(5));
+          dataController.loadFile(argLine.substring(5));
           break;
         case "update":
-          dataHandler.updateQuery(argLine.substring(7), "Unimplemented");
+          dataController.updateQuery(argLine.substring(7), "Unimplemented");
           break;
         case "find":
-          dataHandler.getQuery(argLine.substring(5));
+          dataController.getQuery(argLine.substring(5));
           break;
         case "save":
-          dataHandler.saveFile(argLine.substring(5));
+          dataController.saveFile(argLine.substring(5));
         default:
           break; //do nothing, just print.
       }

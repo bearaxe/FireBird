@@ -2,8 +2,8 @@
 //This should delegate most work.
 //This is going to be a massive stub runner of a class.
 //If data handler handles data, data files should report to datahandler.
-public class DataHandler{
-  private FileHandler fileHandler = new FileHandler();
+public class DataController{
+  private FileParser fileParser = new FileParser();
   private QueryValidator validator = new QueryValidator();
 
   //no write, safe for all
@@ -28,12 +28,12 @@ public class DataHandler{
 
   //add a batch of data
   public void loadFile(String fileLocation){
-    fileHandler.loadFile(fileLocation);
+    fileParser.loadFile(fileLocation);
   }
 
   //save as batch of data
   public void saveFile(String fileLocation){
-    fileHandler.saveFile(fileLocation);
+    fileParser.saveFile(fileLocation);
   }
 
   private void deleteData(String query){

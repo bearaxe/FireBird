@@ -1,6 +1,6 @@
 //Handles Files.
 //Parses data and puts it into Objects
-public class FileHandler{
+public class FileParser{
 
   public void loadFile(String fileLocation){
     System.out.println("File at " + fileLocation + " loaded!!");

@@ -1,6 +1,6 @@
 //Entry point of system.
 //Doesn't do much but keeps things organized.
-public class Manager{
+public class Launcher{
 
   public static void main(String[] args) {
     if(args.length == 0){
