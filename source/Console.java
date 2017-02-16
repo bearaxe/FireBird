@@ -1,5 +1,6 @@
 //Does terminal monitoring.
 //This is a submanager that does input interpretation (for now)
+//I guess with the rename, this makes it a monitor. TerminalMonitor?
 import java.util.Scanner;
 
 public class Console{
