@@ -1,3 +1,5 @@
 *.class
 sources.txt
 /compiled
+datafiles/*
+!.gitkeep
