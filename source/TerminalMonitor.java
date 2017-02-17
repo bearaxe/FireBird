@@ -15,38 +15,41 @@ public class TerminalMonitor{
         continue;//skip next parts, go to next round
 
       String[] args = newMsg.split("\\.");
-      readInput(args);
+      dataController.readInput(args);
       printer.boxPrint(args);
     }
   }
 
   //this will get moved to what will be between terminalMonitor and webMonitor
-  private void readInput(String[] args){
-    for(String argLine : args){
-      argLine = argLine.trim();
-      String keyword = argLine.split(" ")[0];
-      int keySpaceLen = keyword.length()+1;
-
-      switch(keyword){
-        case "exit":
-          System.exit(0);
-          break;
-        case "load":
-          dataController.loadFile(argLine.substring(keySpaceLen));
-          break;
-        case "update":
-          dataController.updateQuery(argLine.substring(keySpaceLen), "Unimplemented");
-          break;
-        case "find":
-          dataController.getQuery(argLine.substring(keySpaceLen));
-          break;
-        case "save":
-          dataController.saveFile(argLine.substring(keySpaceLen));
-        default:
-          break; //do nothing, just print.
-      }
-    }
-  }
+  //That would imply it belongs in DataController. And it does.
+  // private void readInput(String[] args){
+  //   for(String argLine : args){
+  //     argLine = argLine.trim();
+  //     String keyword = argLine.split(" ")[0];
+  //     int keySpaceLen = keyword.length()+1;
+  //
+  //     dataController.readCommand(keyword, keySpaceLen);
+  //
+  //     switch(keyword){
+  //       case "exit":
+  //         System.exit(0);
+  //         break;
+  //       case "load":
+  //         dataController.loadFile(argLine.substring(keySpaceLen));
+  //         break;
+  //       case "update":
+  //         dataController.updateQuery(argLine.substring(keySpaceLen), "Unimplemented");
+  //         break;
+  //       case "find":
+  //         dataController.getQuery(argLine.substring(keySpaceLen));
+  //         break;
+  //       case "save":
+  //         dataController.saveFile(argLine.substring(keySpaceLen));
+  //       default:
+  //         break; //do nothing, just print.
+  //       }
+  //     }
+  //   }
 
   private void prompt(){
     System.out.print(">> ");

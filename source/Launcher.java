@@ -8,7 +8,7 @@ public class Launcher{
       args = deps.useHardMsg();
     }
     Printer printer = new Printer();
-    Console terminal = new Console();
+    TerminalMonitor terminal = new TerminalMonitor();
 
     printer.boxPrint(args);
     terminal.scanForInput(printer);
