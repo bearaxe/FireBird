@@ -18,7 +18,7 @@ public class TerminalMonitor{
       if(newMsg.length() == 0)
         continue;//skip next parts, go to next round
 
-      String[] args = newMsg.split("\\.");
+      String[] args = newMsg.split("\\. ");
       dataController.readInput(args);
       printer.boxPrint(args);
     }
