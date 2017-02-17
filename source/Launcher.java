@@ -7,8 +7,9 @@ public class Launcher{
       TestDep deps = new TestDep();
       args = deps.useHardMsg();
     }
+    DataController masterDataController = new DataController();
     Printer printer = new Printer();
-    TerminalMonitor terminal = new TerminalMonitor();
+    TerminalMonitor terminal = new TerminalMonitor(masterDataController);
 
     printer.boxPrint(args);
     terminal.scanForInput(printer);

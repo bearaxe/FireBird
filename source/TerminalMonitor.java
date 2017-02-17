@@ -4,7 +4,11 @@
 import java.util.Scanner;
 
 public class TerminalMonitor{
-  private DataController dataController = new DataController();
+  private DataController dataController;// = new DataController();
+
+  TerminalMonitor(DataController masterDataController){
+    dataController = masterDataController;
+  }
 
   public void scanForInput(Printer printer){
     Scanner input = new Scanner(System.in);

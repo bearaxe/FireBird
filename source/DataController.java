@@ -1,6 +1,8 @@
 //Controls data.
 //This should delegate most work.
 //This is going to be a massive stub runner of a class.
+//This is eventually going to need a queue so requests from many places at the
+//  same time won't destroy everything.
 public class DataController{
   private FileParser fileParser = new FileParser();
   private QueryValidator validator = new QueryValidator();
