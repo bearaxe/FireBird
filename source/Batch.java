@@ -1,4 +1,4 @@
-public Batch{
+public class Batch{
   private String batchId;
 
   Batch(String name){
